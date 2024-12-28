@@ -11,6 +11,3 @@ class Variables:
             return file_content[self.name]
         
 
-var = Variables("DB_HOST")
-print(var.get_variable())
-

@@ -1,4 +1,5 @@
 from Database import Database
+from Logger import Logger
 
 select_query = 'SELECT * FROM products;'
 insert_products = """
@@ -11,7 +12,7 @@ VALUES
     ('Oculus Rift');
 """
 def main():
-    db = Database()
+    db = Database(Logger('test_logsw'))
     results = db.execute_query(select_query)
     print(results)
     db.disconnect()

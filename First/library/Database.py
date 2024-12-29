@@ -1,10 +1,12 @@
 import mysql.connector
 from Variables import Variables
 from mysql.connector import Error
+from Logger import Logger
 
 class Database():    
-    def __init__(self):
+    def __init__(self, logger: Logger):
         try:
+            self.logger = logger
             self.conn = mysql.connector.connect(
                 host=Variables.get_variable('DB_HOST'),
                 user=Variables.get_variable('DB_USER'),
@@ -20,6 +22,7 @@ class Database():
         pass
     def execute_query(self,query):
         try:
+            self.logger.log_info(query)
             if not self.conn or not self.cursor:
                 print("No active database connection.")
                 return None

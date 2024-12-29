@@ -6,10 +6,10 @@ class Database():
     def __init__(self):
         try:
             self.conn = mysql.connector.connect(
-                host=Variables('DB_HOST').get_variable(),
-                user=Variables('DB_USER').get_variable(),
-                password=Variables('DB_PASSWORD').get_variable(),
-                database=Variables('DATABASE_NAME').get_variable()
+                host=Variables.get_variable('DB_HOST'),
+                user=Variables.get_variable('DB_USER'),
+                password=Variables.get_variable('DB_PASSWORD'),
+                database=Variables.get_variable('DB_NAME')
             )
             self.cursor = self.conn.cursor()
         except Error as e:

@@ -1,5 +1,4 @@
 from Database import Database
-from Variables import Variables
 
 select_query = 'SELECT * FROM products;'
 insert_products = """

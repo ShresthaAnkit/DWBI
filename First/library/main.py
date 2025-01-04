@@ -15,7 +15,7 @@ def main():
     db = Database(Logger('test_logs'))
     results = db.execute_query(select_query)
     print(results)
-    # db.load_to_table('products')
+    # db.load_to_table(table_name='products',file_name='products.csv')
     db.disconnect()
 
 if __name__ == '__main__':

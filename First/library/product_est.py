@@ -1,5 +1,5 @@
 import os
-from ..First.library import Logger
+from ..library import Logger
 from First.library import Database
 
 try:

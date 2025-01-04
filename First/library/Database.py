@@ -42,28 +42,23 @@ class Database():
         SELECT fields from {Variables.SRC_DB}.{Variables.SCHEMA}.{table_name}
         """
 
-    def load_to_table(self,table_name):
+    def load_to_table(self,table_name,file_name):
         sql = f"""
-            LOAD DATA LOCAL INFILE 'D:/Programming/Python/College/First/data/products.csv'
-            INTO TABLE products
+            LOAD DATA LOCAL INFILE '{Variables.get_variable('data_path')}/{file_name}'
+            INTO TABLE {table_name}
             FIELDS TERMINATED BY ',' 
             ENCLOSED BY '"' 
             LINES TERMINATED BY '\n'
-            IGNORE 1 ROWS
-            (product_name,price)
-            SET product_name = NULLIF(product_name, '');
+            IGNORE 1 ROWS                 
         """
+        # SET product_name = NULLIF(product_name, '');
         try:
             # Execute the command
             self.cursor.execute(sql)
-            self.conn.commit()
+            self.conn.commit()        
             print(f"Data loaded successfully into '{table_name}'.")
         except mysql.connector.Error as err:
             print(f"Error: {err}")
-        finally:
-            # Close the connection
-            self.cursor.close()
-            self.conn.close()
 
     def disconnect(self):
         if self.cursor:

@@ -15,7 +15,7 @@ class Logger:
 
     def set_logger(self):
         logger = logging.getLogger(self.file_name)  # Use a unique name for each logger
-        logger.setLevel(logging.INFO)
+        logger.setLevel(logging.DEBUG)
 
         # Avoid adding multiple handlers to the logger
         if not logger.handlers:

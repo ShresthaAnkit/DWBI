@@ -12,9 +12,10 @@ VALUES
     ('Oculus Rift');
 """
 def main():
-    db = Database(Logger('test_logsw'))
+    db = Database(Logger('test_logs'))
     results = db.execute_query(select_query)
     print(results)
+    # db.load_to_table('products')
     db.disconnect()
 
 if __name__ == '__main__':

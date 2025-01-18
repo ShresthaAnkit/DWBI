@@ -1,7 +1,7 @@
 import mysql.connector
-from .Variables import Variables
+from Variables import Variables
 from mysql.connector import Error
-from .Logger import Logger
+from Logger import Logger
 import csv
 
 class Database():    

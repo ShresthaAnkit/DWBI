@@ -1,6 +1,6 @@
 # Keep track of every query
 import logging
-from Variables import Variables
+from .Variables import Variables
 import datetime
 import os
 

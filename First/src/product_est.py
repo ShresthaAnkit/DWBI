@@ -1,6 +1,6 @@
 import os
-from ..library import Logger
-from First.library import Database
+from library.Logger import Logger
+from library.Database import Database
 
 try:
     logger = Logger('Test')

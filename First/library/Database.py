@@ -1,7 +1,8 @@
 import mysql.connector
-from Variables import Variables
+from .Variables import Variables
 from mysql.connector import Error
-from Logger import Logger
+from .Logger import Logger
+import csv
 
 class Database():    
     def __init__(self, logger: Logger):
@@ -39,19 +40,36 @@ class Database():
     
     def ext_to_file(self,table_name):
         query = f"""
-        SELECT fields from {Variables.SRC_DB}.{Variables.SCHEMA}.{table_name}
+        SELECT * from {Variables.get_variable('SRC_DB')}.{table_name}
         """
+        data = self.execute_query(query)                
+        # Get column names from the cursor description
+        column_names = [desc[0] for desc in self.cursor.description]
+
+        output_file = f"{Variables.get_variable('data_path')}/{table_name}.csv"
+        # Write data to a CSV file
+        with open(output_file, mode='w', newline='', encoding='utf-8') as file:
+            writer = csv.writer(file)
+            
+            # Write the header row
+            writer.writerow(column_names)
+            
+            # Write the data rows
+            writer.writerows(data)
+        
+        print(f"Data successfully written to {output_file}")
 
     def load_to_table(self,table_name,file_name):
         sql = f"""
             LOAD DATA LOCAL INFILE '{Variables.get_variable('data_path')}/{file_name}'
-            INTO TABLE {table_name}
+            INTO TABLE {Variables.get_variable('DB_NAME')}.{table_name}
             FIELDS TERMINATED BY ',' 
             ENCLOSED BY '"' 
             LINES TERMINATED BY '\n'
             IGNORE 1 ROWS                 
         """
-        # SET product_name = NULLIF(product_name, '');
+        self.logger.log_info(sql)
+        # SET product_name = NULLIF(product_name, '');        
         try:
             # Execute the command
             self.cursor.execute(sql)

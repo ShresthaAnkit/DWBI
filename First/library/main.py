@@ -1,21 +1,14 @@
 from Database import Database
 from Logger import Logger
 
-select_query = 'SELECT * FROM products;'
-insert_products = """
-INSERT INTO products (product_name)
-VALUES
-    ('Desktop'),
-    ('Walkie Talkie'),
-    ('Earphone'),
-    ('Powerbank'),
-    ('Oculus Rift');
-"""
+select_query = 'SELECT * FROM PRODUCT;'
+
 def main():
     db = Database(Logger('test_logs'))
     results = db.execute_query(select_query)
     print(results)
-    # db.load_to_table(table_name='products',file_name='products.csv')
+    #db.ext_to_file('PRODUCT')
+    #db.load_to_table(table_name='PRODUCT',file_name='PRODUCT.csv')
     db.disconnect()
 
 if __name__ == '__main__':

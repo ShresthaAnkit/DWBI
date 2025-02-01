@@ -17,7 +17,7 @@ class Database():
             )
             self.cursor = self.conn.cursor()
         except Error as e:
-            print(f'Error connecting to Database: {e}')
+            self.logger.log_error('Error connecting to Database: {e}')
             self.conn = None
             self.cursor = None
     def connect(self):
@@ -26,16 +26,16 @@ class Database():
         try:
             self.logger.log_info(query)
             if not self.conn or not self.cursor:
-                print("No active database connection.")
+                self.logger.log_error("No active database connection.")
                 return None
             self.cursor.execute(query)
             if query.strip().upper().startswith("SELECT"):
                 return self.cursor.fetchall()
             else:
                 self.conn.commit()
-                print("Query executed successfully.")
+                self.logger.log_info("Query executed successfully.")
         except Error as e:
-            print(f"Error executing query: {e}")
+            self.logger.log_error(f"Error executing query: {e}")
             return None
 
     def disconnect(self):
@@ -43,5 +43,5 @@ class Database():
             self.cursor.close()
         if self.conn:
             self.conn.close()
-            print("Database connection closed.")
+            self.logger.log_info("Database connection closed.")
     

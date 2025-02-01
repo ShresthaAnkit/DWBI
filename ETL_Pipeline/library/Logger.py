@@ -6,7 +6,7 @@ import os
 
 class Logger:
     def __init__(self,file_name):
-        current_ts = datetime.datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
+        current_ts = datetime.datetime.now().strftime('%Y-%m-%d')
         log_dir = Variables.get_variable('log_path')
         self.file_name = f"{file_name}_{current_ts}"
         self.log_path = os.path.join(log_dir,self.file_name)

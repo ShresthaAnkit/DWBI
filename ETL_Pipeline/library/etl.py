@@ -25,7 +25,7 @@ class ETL:
                 writer.writerows(data)
             self.logger.log_info(f"Data successfully written to {output_file}")
         except Exception as e:
-            self.logger.log_info(f"Error: {e}")
+            self.logger.log_error(f"Error: {e}")
 
     def load_to_table(self):
         sql = f"""
@@ -43,5 +43,5 @@ class ETL:
             self.db.execute_query(sql)
             self.logger.log_info(f"Data loaded successfully into '{self.table}'.")
         except Exception as err:
-            self.logger.log_info(f"Error: {err}")
+            self.logger.log_error(f"Error: {err}")
             raise Exception(f"Error: {err}")

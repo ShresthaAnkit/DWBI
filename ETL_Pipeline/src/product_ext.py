@@ -1,6 +1,6 @@
 from ETL_Pipeline.library.etl import ETL
 
-tables = ['COUNTRY','REGION','CATEGORY','SUBCATEGORY','PRODUCT','CUSTOMER','STORE','SALES']
+tables = ['COUNTRY','REGION','CATEGORY','SUBCATEGORY','PRODUCT','CUSTOMER','STORE']
 def main():
     for table in tables:
         etl = ETL(table)

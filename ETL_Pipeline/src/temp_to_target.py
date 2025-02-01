@@ -11,8 +11,8 @@ def main():
     load_region_to_tgt()
     load_customer_to_tgt()
     load_category_to_tgt()
-    load_product_to_tgt()
     load_subcategory_to_tgt()
+    load_product_to_tgt()
     load_location_to_tgt()
     load_sales_to_tgt()
 if __name__ == '__main__':

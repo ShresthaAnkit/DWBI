@@ -12,7 +12,7 @@ class ETL:
     def ext_to_file(self):
         try:
             query = f"""
-            SELECT * from {Variables.get_variable('SRC_DB')}.{self.table}
+            SELECT * from {Variables.get_variable('DB_SRC')}.{self.table}
             """
             data = self.db.execute_query(query)
             # Get column names from the cursor description
@@ -30,7 +30,7 @@ class ETL:
     def load_to_table(self):
         sql = f"""
             LOAD DATA LOCAL INFILE '{Variables.get_variable('data_path')}/{self.table}.csv'
-            INTO TABLE {Variables.get_variable('DB_NAME')}.{self.table}
+            INTO TABLE {Variables.get_variable('DB_STG')}.{self.table}
             FIELDS TERMINATED BY ',' 
             ENCLOSED BY '"' 
             LINES TERMINATED BY '\n'

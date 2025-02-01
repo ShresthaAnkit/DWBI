@@ -12,7 +12,7 @@ class Database():
                 host=Variables.get_variable('DB_HOST'),
                 user=Variables.get_variable('DB_USER'),
                 password=Variables.get_variable('DB_PASSWORD'),
-                database=Variables.get_variable('DB_NAME'),
+                database=Variables.get_variable('DB_STG'),
                 allow_local_infile=True
             )
             self.cursor = self.conn.cursor()

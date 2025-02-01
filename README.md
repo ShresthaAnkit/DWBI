@@ -27,7 +27,7 @@ Add your own values for each variable.
 
 7. Now open the `product_ext.py` file in the `src` directory and run it.
 
-8. Open the `load_sales.sql` file in `sql_queries` directory and replace the `INFILE` path there with your own path. You can get your path by running `SHOW VARIABLES LIKE 'secure_file_priv';`. Remember to add the full path to the csv file from the next step.
+8. Open the `load_sales.sql` file in `sql_queries` directory and replace the `INFILE` path there with your own path. You can get your path by running `SHOW VARIABLES LIKE 'secure_file_priv';` in Mysql workbench. Remember to add the full path to the csv file from the next step.
 
 9. Copy the `Sales Data.csv` file sent by sir to the uploads folder.
 
@@ -37,4 +37,4 @@ Add your own values for each variable.
 
 12. Open the `temp_to_target.py` file and run it.
 
-13. To test if the process was successful run `SELECT * FROM OLAP_{Your_name}_TGT.F_RETAIL_SLS_T;`
+13. To test if the process was successful run `SELECT * FROM OLAP_{Your_name}_TGT.F_RETAIL_SLS_T;` in Mysql workbench.

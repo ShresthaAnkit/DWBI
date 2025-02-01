@@ -21,16 +21,18 @@
 ```
 Add your own values for each variable.
 
-5. Open the `all_sql.sql` file in `sql_queries` directory and replace `ANKIT` with `YOUR_NAME` and run the entire file.
+5. Open the `Variables.py` file in the `library` directory and replace the path with the path to your `config.cfg` file.
 
-6. Now open the `product_ext.py` file in the `src` directory and run it.
+6. Open the `all_sql.sql` file in `sql_queries` directory and replace `ANKIT` with `YOUR_NAME` and run the entire file.
 
-7. Open the `load_sales.sql` file in `sql_queries` directory and replace the `INFILE` path there with your own path. You can get your path by running `SHOW VARIABLES LIKE 'secure_file_priv';`. Remember to add the full path to the csv file from the next step.
+7. Now open the `product_ext.py` file in the `src` directory and run it.
 
-8. Copy the `Sales Data.csv` file sent by sir to the uploads folder.
+8. Open the `load_sales.sql` file in `sql_queries` directory and replace the `INFILE` path there with your own path. You can get your path by running `SHOW VARIABLES LIKE 'secure_file_priv';`. Remember to add the full path to the csv file from the next step.
 
-9. Run the `load_sales.sql` file.
+9. Copy the `Sales Data.csv` file sent by sir to the uploads folder.
 
-10. Open the `stage_to_temp.py` file and run it.
+10. Run the `load_sales.sql` file.
 
-11. Open the `temp_to_target.py` file and run it.
+11. Open the `stage_to_temp.py` file and run it.
+
+12. Open the `temp_to_target.py` file and run it.

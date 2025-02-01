@@ -17,5 +17,9 @@
 ```
 Add your own values for each variable.
 4. Open the `all_sql.sql` file in `sql_queries` directory and replace `ANKIT` with `YOUR_NAME` and run the entire file.
-5. 
-SHOW VARIABLES LIKE 'secure_file_priv';
+5. Now open the `product_ext.py` file in the `src` directory and run it.
+5. Open the `load_sales.sql` file in `sql_queries` directory and replace the `INFILE` path there with your own path. You can get your path by running `SHOW VARIABLES LIKE 'secure_file_priv';`. Remember to add the full path to the csv file from the next step.
+6. Copy the `Sales Data.csv` file sent by sir to the uploads folder.
+7. Run the `load_sales.sql` file.
+8. Open the `stage_to_temp.py` file and run it.
+9. Open the `temp_to_target.py` file and run it.

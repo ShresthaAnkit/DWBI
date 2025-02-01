@@ -27,7 +27,7 @@ Add your own values for each variable.
 
 7. Now open the `product_ext.py` file in the `src` directory and run it.
 
-8. Open the `load_sales.sql` file in `sql_queries` directory and replace the `INFILE` path there with your own path. You can get your path by running `SHOW VARIABLES LIKE 'secure_file_priv';`. Remember to add the full path to the csv file from the next step.
+8. Open the `load_sales.sql` file in `sql_queries` directory and replace the `INFILE` path there with your own path. You can get your path by running `SHOW VARIABLES LIKE 'secure_file_priv';`. Remember to add the full path to the csv file from the next step and replace the database name in `OLAP_ANKIT_STG.SALES` with your database name.
 
 9. Copy the `Sales Data.csv` file sent by sir to the uploads folder.
 

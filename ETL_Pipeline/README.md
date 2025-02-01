@@ -36,3 +36,5 @@ Add your own values for each variable.
 11. Open the `stage_to_temp.py` file and run it.
 
 12. Open the `temp_to_target.py` file and run it.
+
+13. To test if the process was successful run `SELECT * FROM OLAP_{Your_name}_TGT.F_RETAIL_SLS_T;`

@@ -1,6 +1,6 @@
 .env
 .idea
-config/
+config.cfg
 logs/
 *.pyc
 __pycache__/
